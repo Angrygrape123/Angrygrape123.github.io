@@ -1,4 +1,11 @@
-<!DOCTYPE HTML>
+<div id="flash-space" style="display: block; width: 700px; margin: 5px auto 0px auto;">	
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="700" height="500">
+  <param name="movie" value="http://www.crazymonkeygames.com/Yt6Rfd/pandemic2.swf">
+  <param name="quality" value="high">
+  <param name="allowFullScreen" value="true">
+  <embed src="http://www.crazymonkeygames.com/Yt6Rfd/pandemic2.swf" quality="high" allowfullscreen="true" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="700" height="500">
+</object>
+</div><!DOCTYPE HTML>
 <!--
 	Photon by HTML5 UP
 	html5up.net | @n33co
@@ -76,14 +83,220 @@
 								<h2>LLATIN STUFF<br />
 								GET SHRECKD</h2>
 							</header>
-							<p>WE ARE THE YOLO SWAGS BOW DOWN</p>
-							<p>PEPPA PIG IM FABULOS</p>
-							<p>NUNS ARE COOL </p>
+							<p>Guys here I have an epic game</p>
+							<p>It is MLG flappy bird </p>
+							<p>ENJOY </p>
 						</div>
 					</div>
 				</div>
 			</section>
+<div id="online-game-container" class="online-game-container new-type" style="width: 950px; left: px;">
+	<div class="well fill-light-gray clearfix online-game-bar">
+		<div class="right">
+			<a href="#" class="i-button big light-dimmer dim-lights"><i class="jolticon jolticon-light-off"></i> Dim Lights</a>
+			<a href="#" class="i-button big light-dimmer raise-lights" style="display: none;"><i class="jolticon jolticon-light-on"></i> Raise Lights</a>
+		</div>
+					<div class="version-switcher"><strong>
+				HTML Game			</strong></div>
+			</div>
+	<div class="well fill-white" id="online-game-body">
 
+		<script type="text/javascript">
+
+			function showGame()
+			{
+				EventTracking.track( 'Game Play', 'Success', 'Browser' );
+				$( '#online-game-body' ).append( '<div style="width: 379px; height: 607px; margin: 0 auto;"><iframe id="online-game-frame" type="text/html" width="379" height="607" src="http://gamejolt.net/gameserver/view/55214/?username=&amp;token=" frameborder="0" scrolling="no" allowfullscreen></iframe></div>' );
+			}
+
+			$( function()
+			{
+				EventTracking.track( 'Game Play', 'Attempt', 'Browser' );
+			} );
+
+		</script>
+
+					<style>
+	.ad-video-player {
+		position: relative;
+		margin: 0 auto;
+		width: 910px;
+		height: 512px;
+	}
+
+	.ad-video-player-ad-container,
+	.ad-video-player-embed-video,
+	.ad-video-player-play-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 910px;
+		height: 512px;
+	}
+</style>
+
+
+
+<script type="text/javascript">
+
+	$( function()
+	{
+		EventTracking.track( 'Video Ad', 'Attempt', 'IMA' );
+
+		var adsManager, isAdPlaying;
+
+		videoElem = $( '#ad-video-player video' )[0];
+		adContainerElem = $( '.ad-video-player-ad-container' )[0];
+
+		// Create initialize the ad container.
+		var adDisplayContainer = new window.google.ima.AdDisplayContainer( adContainerElem, videoElem );
+		adDisplayContainer.initialize();
+
+		// Set up an ads loader.
+		var adsLoader = new window.google.ima.AdsLoader( adDisplayContainer );
+		adsLoader.getSettings().setVpaidAllowed( true );
+
+		adsLoader.addEventListener( window.google.ima.AdsManagerLoadedEvent.Type.ADS_MANAGER_LOADED, onAdLoaded, false );
+		adsLoader.addEventListener( window.google.ima.AdErrorEvent.Type.AD_ERROR, onAdError, false );
+
+		var adsRequest = new window.google.ima.AdsRequest();
+
+		// For testing.
+		// adsRequest.adTagUrl = 'http://pubads.g.doubleclick.net/gampad/ads?' +
+		// 	'sz=640x360&iu=/6062/iab_vast_samples/skippable&ciu_szs=300x250,728x90&' +
+		// 	'impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&' +
+		// 	'url=[referrer_url]&correlator=[timestamp]';
+		
+		adsRequest.adTagUrl = '//pubads.g.doubleclick.net/gampad/ads?sz=854x480&iu=/27005478/web-video-browser&ciu_szs=300x60,300x250,728x90&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=__page-url__&correlator=__timestamp__&cust_params=game_title%3DMLG+Flappy+Bird+420%26game_id%3D37951%26ref_url%3Dhttp%25253A%25252F%25252Fgamejolt.com%25252Fgames%25252Faction%25252Fmlg-flappy-bird-420%25252F37951%25252F';
+
+		adsRequest.linearAdSlotWidth = 910;
+		adsRequest.linearAdSlotHeight = 512;
+
+		// This'll start the ads request process.
+		// Will either call onAdError or onAdLoaded.
+		adsLoader.requestAds( adsRequest );
+
+		function toggleAd()
+		{
+			if ( isAdPlaying ) {
+				adsManager.pause();
+				isAdPlaying = false;
+			}
+			else {
+				adsManager.resume();
+				isAdPlaying = true;
+			}
+		}
+
+		function onAdLoaded( event )
+		{
+			adsManager = event.getAdsManager( videoElem );
+
+			// Set up all the events.
+			adsManager.addEventListener( window.google.ima.AdErrorEvent.Type.AD_ERROR, onAdError );
+
+			adsManager.addEventListener( window.google.ima.AdEvent.Type.CONTENT_PAUSE_REQUESTED, function onContentPauseRequested()
+			{
+				videoElem.pause();
+				isAdPlaying = true;
+			} );
+
+			adsManager.addEventListener( window.google.ima.AdEvent.Type.CONTENT_RESUME_REQUESTED, function onContentResumeRequested()
+			{
+				videoElem.play();
+				isAdPlaying = false;
+			} );
+
+			adsManager.addEventListener( window.google.ima.AdEvent.Type.STARTED, function()
+			{
+				EventTracking.track( 'Video Ad', 'Started', 'IMA' );
+			} );
+
+			adsManager.addEventListener( window.google.ima.AdEvent.Type.IMPRESSION, function()
+			{
+				// Log with pixel.
+				var img = window.document.createElement( 'img' );
+				img.src = '/adserver/log/video/?cb=7aef7c1d&amp;resource_type=2&amp;resource_id=37951';
+			} );
+
+			adsManager.addEventListener( window.google.ima.AdEvent.Type.CLICK, function()
+			{
+				EventTracking.track( 'Video Ad', 'Clicked', 'IMA' );
+				toggleAd();
+			} );
+
+			adsManager.addEventListener( window.google.ima.AdEvent.Type.SKIPPED, function( event )
+			{
+				EventTracking.track( 'Video Ad', 'Skipped', 'IMA' );
+				onAdFinished();
+			} );
+
+			adsManager.addEventListener( window.google.ima.AdEvent.Type.COMPLETE, function()
+			{
+				EventTracking.track( 'Video Ad', 'Completed', 'IMA' );
+				onAdFinished();
+			} );
+
+			try {
+				adsManager.init( 910, 512, window.google.ima.ViewMode.NORMAL );
+				adsManager.start();
+			}
+			catch ( exception ) {
+				onAdError( exception );
+			}
+		}
+
+		function onAdError( e )
+		{
+			if ( e.getError ) {
+				e = e.getError();
+			}
+
+			// May be DOMError or google.ima.AdError.
+			if ( e.message ) {
+				EventTracking.track( 'Video Ad', 'Ad Error', e.message );
+			}
+			else {
+				switch( e.getErrorCode() ) {
+					case 303:
+						EventTracking.track( 'Video Ad', 'No Ad', e.getMessage() );
+						break;
+
+					case 403:
+						EventTracking.track( 'Video Ad', 'Invalid Ad Format', e.getMessage() );
+						break;
+
+					default:
+						EventTracking.track( 'Video Ad', 'Ad Error', e.getErrorCode() + ' - ' + e.getMessage() );
+				}
+			}
+
+			onAdFinished();
+		}
+
+		function onAdFinished()
+		{
+			if ( adsManager ) {
+				adsManager.destroy();
+			}
+
+			$( '.ima-ad-container' ).remove();
+			showGame();
+		}
+	} );
+
+</script>		
+	<div style="width: 379px; height: 607px; margin: 0 auto;"><iframe id="online-game-frame" type="text/html" width="379" height="607" src="http://gamejolt.net/gameserver/view/55214/?username=&amp;token=" frameborder="0" scrolling="no" allowfullscreen=""></iframe></div></div>
+</div>
+
+<div id="flash-space" style="display: block; width: 700px; margin: 5px auto 0px auto;">	
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="700" height="500">
+  <param name="movie" value="http://www.crazymonkeygames.com/Yt6Rfd/pandemic2.swf">
+  <param name="quality" value="high">
+  <param name="allowFullScreen" value="true">
+  <embed src="http://www.crazymonkeygames.com/Yt6Rfd/pandemic2.swf" quality="high" allowfullscreen="true" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="700" height="500">
+</object>
+</div>
 		<!-- Three -->
 			<section id="three" class="main style1 special">
 				<div class="container">
